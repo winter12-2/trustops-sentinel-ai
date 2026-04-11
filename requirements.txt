@@ -1,0 +1,35 @@
+# Backend
+fastapi
+uvicorn[standard]
+
+# Frontend templating
+jinja2
+python-multipart
+
+# Config & validation
+pydantic
+python-dotenv
+
+# HTTP clients
+requests
+httpx
+
+# Redis (memory + vector + streams)
+redis
+redisvl
+
+# Tavily (live search)
+tavily-python
+
+# MySQL (database)
+mysql-connector-python
+
+# IBM watsonx Orchestrate (agent runtime)
+ibm-watsonx-orchestrate
+
+# Redis Agent Memory client
+agent-memory-client
+
+# Optional utilities (recommended)
+loguru
+
