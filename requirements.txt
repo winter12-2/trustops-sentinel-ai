@@ -33,3 +33,5 @@ agent-memory-client
 # Optional utilities (recommended)
 loguru
 
+# Pydantic settings management
+pydantic-settings
