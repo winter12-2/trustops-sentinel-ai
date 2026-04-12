@@ -1,3 +1,54 @@
-.env
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables (VERY IMPORTANT)
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Database / dumps
+*.sqlite3
+*.db
+*.sql
+
+# Docker
+*.pid
+
+# Build
+dist/
+build/
+
+# Node (future)
+node_modules/
+
+# Secrets
+credentials.yaml
+*.key
+*.pem
+
+# Orchestrate cache
+.cache/
+.cache/orchestrate/
+
+# Uploads (future)
+uploads/
+

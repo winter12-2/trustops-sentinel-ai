@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Logs - TrustOps Sentinel AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-glass sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/static/index.html">TrustOps Sentinel AI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="/static/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/static/dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/static/logs.html">Logs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-shell">
+    <div class="container py-4 py-lg-5">
+      <div class="page-header mb-4 d-flex flex-wrap justify-content-between align-items-end gap-3">
+        <div>
+          <div class="eyebrow mb-2">Audit & Review</div>
+          <h1 class="page-title mb-1">Action Logs</h1>
+          <p class="page-subtitle mb-0">
+            Review persisted decisions, threat levels, and scores stored in MySQL.
+          </p>
+        </div>
+        <div class="d-flex gap-2">
+          <button class="btn btn-soft" id="refreshLogsBtn">Refresh</button>
+          <a href="/static/dashboard.html" class="btn btn-primary">Evaluate New Action</a>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <div class="metric-box metric-box-large">
+            <div class="metric-label">Total Logs</div>
+            <div class="metric-value" id="totalLogs">0</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-box metric-box-large">
+            <div class="metric-label">Blocks</div>
+            <div class="metric-value" id="totalBlocks">0</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-box metric-box-large">
+            <div class="metric-label">Approvals</div>
+            <div class="metric-value" id="totalApprovals">0</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="metric-box metric-box-large">
+            <div class="metric-label">Avg. Risk</div>
+            <div class="metric-value" id="avgRisk">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-card">
+        <div class="panel-card-header d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="panel-title">Recent Decisions</h3>
+            <p class="panel-subtitle mb-0">Latest action history from the backend</p>
+          </div>
+          <span class="status-pill status-neutral" id="logsStatus">Ready</span>
+        </div>
+        <div class="panel-card-body">
+          <div id="logsLoadingState" class="loading-state d-none">
+            <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+            Loading logs...
+          </div>
+
+          <div id="logsEmptyState" class="empty-state d-none">
+            No action logs available yet.
+          </div>
+
+          <div class="table-responsive">
+            <table class="table custom-table align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Action</th>
+                  <th>User Role</th>
+                  <th>Decision</th>
+                  <th>Threat</th>
+                  <th>Score</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="logsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/logs.js"></script>
+</body>
+</html>
