@@ -52,3 +52,4 @@ credentials.yaml
 # Uploads (future)
 uploads/
 
+cloudflared-linux-amd64.deb
