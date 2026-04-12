@@ -1,6 +1,8 @@
 # trustops-sentinel-ai
 TrustOps Sentinel AI is an agentic platform for enterprise IT/security that prevents unsafe actions before execution and enables post-incident analysis. It combines real-time policy enforcement, AI reasoning, vector memory, external intelligence, and blockchain audit logs to deliver proactive, explainable, and trustworthy decision-making.
 
+Demo Video Link - https://drive.google.com/drive/folders/1cakyp9akn2yMJsRVkd3KRl-X1a7XZvAQ?usp=sharing
+
 🚀 TrustOps Sentinel AI
 Real-Time Policy Firewall for Agentic Enterprise Systems
 
