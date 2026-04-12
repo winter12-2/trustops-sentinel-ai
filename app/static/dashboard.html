@@ -34,7 +34,7 @@
           <div class="eyebrow mb-2">Evaluation Console</div>
           <h1 class="page-title mb-1">Action Evaluation Dashboard</h1>
           <p class="page-subtitle mb-0">
-            Submit a proposed action and get a decision, threat level, reasons, safe transform, and live verification.
+            Submit a proposed action and receive decision, threat level, safe transform, live verification, and immutable blockchain proof.
           </p>
         </div>
       </div>
@@ -68,7 +68,7 @@
 
                 <div class="mb-3">
                   <label class="form-label">User Role</label>
-                  <input type="text" class="form-control" id="user_role" value="employee" required>
+                  <input type="text" class="form-control" id="user_role" required>
                 </div>
 
                 <div class="mb-3">
@@ -120,9 +120,6 @@
                   <button type="submit" class="btn btn-primary btn-lg" id="evaluateBtn">
                     Evaluate Action
                   </button>
-                  <!-- <button type="button" class="btn btn-soft" id="loadSampleBtn">
-                    Load Sample Scenario
-                  </button> -->
                 </div>
               </form>
             </div>
@@ -134,7 +131,7 @@
             <div class="panel-card-header d-flex justify-content-between align-items-center">
               <div>
                 <h3 class="panel-title">Result</h3>
-                <p class="panel-subtitle mb-0">Decision output from SentinelFlow</p>
+                <p class="panel-subtitle mb-0">Decision output from SentinelFlow + Algorand proof</p>
               </div>
               <span class="status-pill status-neutral" id="resultStatus">Waiting</span>
             </div>
@@ -159,7 +156,6 @@
                       <div class="metric-value mt-2" id="decisionText">-</div>
                     </div>
                   </div>
-                  <br>
 
                   <div class="col-md-6">
                     <div class="metric-box">
@@ -193,6 +189,16 @@
                   <h5 class="section-title">Live Verification</h5>
                   <pre class="json-box" id="liveVerificationBox">null</pre>
                 </div>
+
+                <div class="section-block">
+                  <h5 class="section-title">Algorand Immutable Proof</h5>
+                  <pre class="json-box" id="blockchainBox">null</pre>
+                  <div class="mt-3 d-none" id="blockchainLinkWrap">
+                    <a id="blockchainLink" href="#" target="_blank" class="btn btn-soft btn-sm">
+                      View on AlgoExplorer
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -223,7 +229,7 @@
               </div>
 
               <div class="alert alert-soft mt-3 mb-0">
-                Verified public claims may reduce risk, but sensitive external actions can still require approval or blocking.
+                Flow: watsonx Orchestrate Agent → Guarded Email Tool → SentinelFlow Policy Engine → Tavily Verification → Redis + MySQL Logs → Algorand Immutable Proof.
               </div>
             </div>
           </div>
@@ -237,3 +243,4 @@
   <script src="/static/js/dashboard.js"></script>
 </body>
 </html>
+

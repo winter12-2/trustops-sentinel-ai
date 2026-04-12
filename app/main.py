@@ -13,6 +13,8 @@ from app.services.mysql_service import (
     insert_incident,
 )
 from app.services.policy_engine import evaluate_action
+from app.services.algorand_service import algorand_service
+
 
 app = FastAPI(title=settings.app_name)
 
@@ -79,6 +81,7 @@ def list_incidents():
 def evaluate_action_endpoint(action: ActionRequest):
     result = evaluate_action(action)
 
+    # Redis logging
     redis_service.push_event(
         "stream:actions",
         {
@@ -90,11 +93,44 @@ def evaluate_action_endpoint(action: ActionRequest):
         },
     )
 
+    # MySQL logging (unchanged)
     insert_action_log(action, result)
 
-    return result.model_dump()
+    # Algorand proof (kept completely separate from MySQL)
+    blockchain_payload = {
+        "action_type": action.action_type,
+        "user_role": action.user_role,
+        "recipients": action.recipients,
+        "subject": action.subject,
+        "decision": result.decision,
+        "threat_level": result.threat_level,
+        "risk_score": result.risk_score,
+        "reasons": result.reasons,
+    }
+
+    blockchain_result = algorand_service.send_proof(blockchain_payload)
+
+    response = result.model_dump()
+    response["blockchain"] = blockchain_result
+
+    return response
 
 
 @app.get("/action-logs")
 def action_logs():
     return get_action_logs()
+
+
+@app.get("/algorand-health")
+def algorand_health():
+    return {
+        "configured": algorand_service.is_configured(),
+        "address": settings.algorand_address,
+        "algod_address": settings.algorand_algod_address,
+    }
+
+
+@app.get("/algorand-balance")
+def algorand_balance():
+    return algorand_service.get_balance()
+
