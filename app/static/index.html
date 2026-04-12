@@ -31,13 +31,15 @@
     <div class="container py-5 py-lg-6">
       <div class="row align-items-center g-4 g-lg-5">
         <div class="col-lg-7">
-          <div class="eyebrow mb-3">Agentic Security • Real-Time Policy Firewall • Auditability</div>
+          <div class="eyebrow mb-3">Agentic Security • Real-Time Policy Firewall • Immutable Audit</div>
           <h1 class="display-4 fw-800 lh-tight mb-3">
-            Prevent unsafe AI actions before they happen.
+            Govern AI actions before execution with explainable decisions.
           </h1>
           <p class="hero-text mb-4">
-            TrustOps Sentinel AI combines action interception, live verification, policy-driven scoring,
-            vector memory, and audit logging into one enterprise control platform.
+            TrustOps Sentinel AI combines <strong>IBM watsonx Orchestrate</strong> as the agent runtime,
+            <strong>SentinelFlow</strong> as the interception layer, <strong>Tavily</strong> for live verification,
+            <strong>Redis</strong> for memory and streams, <strong>MySQL</strong> for operational storage,
+            and <strong>Algorand</strong> for immutable proof of decisions.
           </p>
 
           <div class="d-flex flex-wrap gap-3">
@@ -61,7 +63,7 @@
             <div class="col-sm-6 col-xl-4">
               <div class="stat-card">
                 <div class="stat-label">Core Stack</div>
-                <div class="stat-value">FastAPI, Redis, Tavily, MySQL</div>
+                <div class="stat-value">watsonx, Redis, Tavily, MySQL, Algorand</div>
               </div>
             </div>
           </div>
@@ -76,15 +78,19 @@
             </div>
             <div class="hero-panel-body">
               <div class="flow-card">
-                <div class="flow-step">1. Proposed Action</div>
+                <div class="flow-step">1. watsonx Orchestrate Agent receives action request</div>
                 <div class="flow-arrow">↓</div>
-                <div class="flow-step">2. SentinelFlow Evaluation</div>
+                <div class="flow-step">2. Guarded Email Tool routes action to SentinelFlow</div>
                 <div class="flow-arrow">↓</div>
-                <div class="flow-step">3. Tavily Live Verification</div>
+                <div class="flow-step">3. Policy Engine scores risk + checks Redis memory</div>
                 <div class="flow-arrow">↓</div>
-                <div class="flow-step">4. Decision + Threat Level</div>
+                <div class="flow-step">4. Tavily verifies live claims when needed</div>
                 <div class="flow-arrow">↓</div>
-                <div class="flow-step">5. Redis Stream + MySQL Audit</div>
+                <div class="flow-step">5. Decision + Threat Level generated</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">6. Redis + MySQL log operational history</div>
+                <div class="flow-arrow">↓</div>
+                <div class="flow-step">7. Algorand stores immutable proof hash</div>
               </div>
             </div>
           </div>
@@ -95,28 +101,28 @@
         <div class="row g-4">
           <div class="col-md-4">
             <div class="feature-card h-100">
-              <div class="feature-kicker">Interception</div>
-              <h3 class="feature-title">Pre-execution control</h3>
+              <div class="feature-kicker">Agent Governance</div>
+              <h3 class="feature-title">watsonx guarded execution</h3>
               <p class="feature-text">
-                Evaluates risky actions before execution and applies enterprise policy in real time.
+                Sensitive actions are not executed directly. The watsonx Orchestrate agent uses guarded tools that call the policy engine first.
               </p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="feature-card h-100">
-              <div class="feature-kicker">Intelligence</div>
-              <h3 class="feature-title">Live context verification</h3>
+              <div class="feature-kicker">Live Intelligence</div>
+              <h3 class="feature-title">Evidence-aware decisions</h3>
               <p class="feature-text">
-                Uses external evidence checks for claims that depend on fresh public information.
+                Tavily verifies current public claims so actions are not approved using stale or unsupported information.
               </p>
             </div>
           </div>
           <div class="col-md-4">
             <div class="feature-card h-100">
-              <div class="feature-kicker">Audit</div>
-              <h3 class="feature-title">Persistent traceability</h3>
+              <div class="feature-kicker">Immutable Audit</div>
+              <h3 class="feature-title">Algorand proof layer</h3>
               <p class="feature-text">
-                Stores decisions, scores, and action history for review, compliance, and reporting.
+                Every evaluated action can generate an immutable blockchain proof, creating a tamper-resistant audit trail beyond MySQL logs.
               </p>
             </div>
           </div>
@@ -128,3 +134,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

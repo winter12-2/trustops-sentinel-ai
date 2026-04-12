@@ -35,3 +35,5 @@ loguru
 
 # Pydantic settings management
 pydantic-settings
+
+# Algorand SDK (for blockchain integration)
