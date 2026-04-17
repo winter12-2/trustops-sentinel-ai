@@ -191,7 +191,6 @@ BLOCK
 
 
 🤖 Watsonx Orchestrate (Delegated Task)
-👩‍💻 Assigned To: Teammate
 
 🔹 Goal
 Integrate watsonx as:
